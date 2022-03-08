@@ -1,6 +1,6 @@
 {
   "name": "mapreduce-scrollytelling",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Scrollytelling Game Map Reduce",
   "main": "index.js",
   "directories": {},
@@ -9,7 +9,7 @@
     "eases-jsnext": "^1.0.8",
     "intersection-observer": "^0.12.0",
     "map-reduce-game": "milafrerichs/map-reduce-game",
-		"month-data-generator": "milafrerichs/month-data-generator",
+    "month-data-generator": "milafrerichs/month-data-generator",
     "scrollama": "^2.2.3",
     "sirv-cli": "^1.0.0",
     "d3-scale": "^4.0.2",
