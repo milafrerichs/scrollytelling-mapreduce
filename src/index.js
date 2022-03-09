@@ -5,7 +5,7 @@ let islands = [ "Crete", "Evia", "Lesbos", "Rhodes", "Chíos", "Cephalonia", "Co
 var monthNames = [ "January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December" ];
 
-let types = [{name: "highest", method: Math.max}, {name: "lowest", method: Math.min}]
+let types = [{name: "highest", method: Math.max}] //, {name: "lowest", method: Math.min}]
 let columns = [{name: "temperature", column: "temp"}]
 let data = getData();
 let randomMonthIndex = Math.random()*monthNames.length | 0;
