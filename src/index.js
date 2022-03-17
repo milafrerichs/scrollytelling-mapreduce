@@ -8,6 +8,8 @@ var monthNames = [ "January", "February", "March", "April", "May", "June",
 let types = [{name: "highest", method: Math.max}] //, {name: "lowest", method: Math.min}]
 let columns = [{name: "temperature", column: "temp"}]
 let data = getData();
+
+function generateQuestion() {
 let randomMonthIndex = Math.random()*monthNames.length | 0;
 let randomMonth = monthNames[randomMonthIndex]
 let randomTypeIndex = Math.random() * types.length | 0;
@@ -16,8 +18,14 @@ let question = {
   column: columns[0].column,
   filter: (d) => { return d.month === randomMonth  },
   typeFunction: randomType.method,
-  text: `Which Island has the ${randomType.name} ${columns[0].name} in ${randomMonth}`
+  text: `Which Island has the ${randomType.name} ${columns[0].name} in ${randomMonth}`,
+  month: randomMonth,
+  typeText: `${types[0].name} ${columns[0].name}`
 }
+
+return question;
+}
+let question = generateQuestion();
 
 
 let state = {
@@ -32,9 +40,9 @@ let state = {
     { headline: "Your turn", text: "Now it's your turn to answer the question based on your assigned data." , size: 's'},
     { stayOn: true },
     { headline: "Answers from all other mappers", text: "This is the data that all the other mappers provided to the reducer" , size: 'm'},
-    { text: "The result of the reducer is the following data"},
+    { },
     { text: "Explanation about the game, concept, etc. Encouregement to play again." },
-    { headline: "End", restart: true , size: 'm'},
+    { headline: "End", text: "You can restart the game if you want", restart: true , size: 'm'},
   ],
   gameQuestion: question,
   gameStarts: 3,
@@ -44,6 +52,14 @@ var app = new App({
   target: document.body,
   props: Object.assign( {}, state )
 });
+
+window.addEventListener("mrGame:restart", () => {
+  let question = generateQuestion();
+  let { slides } = state;
+  slides[4] = { headline: question.text, text: "This is the question you will need to answer. " }
+  app.$set({gameQuestion: question, slides })
+})
+
 
 window.addEventListener("resize", function() {
 });

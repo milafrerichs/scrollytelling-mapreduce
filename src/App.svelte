@@ -10,17 +10,28 @@
   export let gameQuestion = {};
   let slide = 0;
   let direction = "down"
+  let restartLock = false;
 
   function gameEvent(direction, slideIndex) {
     window.dispatchEvent(new CustomEvent(`mrGame:${direction}`, { bubbles: true, detail: {slideIndex} }))
   }
 
+  function handleRestart() {
+    restartLock = true;
+
+  }
+
   $: if(slide > gameStarts) {
     let nextPrev = direction === "up" ? "prev" : "next"
     //check if we want to go next or not e.g. provide answer
+    if(slide < gameEnds && nextPrev === "next") {
+      restartLock = false;
+    }
     if(slides[slide].stayOn) {
     }else {
+        if(!restartLock) {
       gameEvent(nextPrev, slide)
+          }
     }
   }
 
@@ -49,7 +60,7 @@
       </div>
     {/if}
   </div>
-  <Scroll bind:currentStep={slide} bind:direction={direction} stepHeight={height} slides={slides} />
+  <Scroll bind:currentStep={slide} bind:direction={direction} stepHeight={height} slides={slides} on:restart={handleRestart}/>
 </div>
 
 <style global lang="postcss">

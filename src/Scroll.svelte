@@ -2,7 +2,7 @@
   import "intersection-observer";
   import scrollama from "scrollama";
 
-  import { onMount } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
 
   import Slide from "./Slide.svelte";
 
@@ -13,6 +13,8 @@
   let allowEvents = false;
   let scrolParent;
   let scroller = scrollama();
+
+  const dispatch = createEventDispatcher();
 
     $: if(scrolParent) {
       scrolParent.style.marginTop =`-${stepHeight}px`;
@@ -32,6 +34,7 @@
     function handleRestart() {
         document.getElementById("start").scrollIntoView();
         window.dispatchEvent(new CustomEvent(`mrGame:restart`, { bubbles: true }))
+        dispatch('restart');
         allowEvents = false;
       }
 
