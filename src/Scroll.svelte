@@ -4,10 +4,13 @@
 
   import { onMount } from 'svelte';
 
+  import Slide from "./Slide.svelte";
+
   export let currentStep = 0;
   export let direction = "down";
   export let stepHeight = 796;
   export let slides;
+  let allowEvents = false;
   let scrolParent;
   let scroller = scrollama();
 
@@ -22,7 +25,15 @@
       }
       currentStep = response.index;
     }
+      if(response.index === slides.length-1) {
+          allowEvents = true;
+        }
   }
+    function handleRestart() {
+        document.getElementById("start").scrollIntoView();
+        window.dispatchEvent(new CustomEvent(`mrGame:restart`, { bubbles: true }))
+        allowEvents = false;
+      }
 
 
   onMount(() => {
@@ -37,22 +48,24 @@
     window.addEventListener("resize", scroller.resize);
   })
 </script>
-<div id="scroller" bind:this={scrolParent}>
+<div id="scroller" bind:this={scrolParent} class="{allowEvents ? "pointer-events-auto" : "pointer-events-none"}">
   {#each slides as slide}
-    <div class="step" style="height:{stepHeight}px">
+    <div class="step" style="height:{stepHeight}px" id="{slide.gameStart ? "start": ""}">
     <div class="flex h-screen justify-center items-center">
     {#if slide.text || slide.headline }
-    <div class="bg-white max-w-7xl mx-auto  py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-      {#if slide.headline}
-        <h2 class="text-3xl font-extrabold text-center tracking-tight text-gray-900 sm:text-4xl mb-8">{slide.headline}</h2>
-      {/if}
-      {#if slide.text}
-      <p>{slide.text}</p>
-      {/if}
-      {#if slide.restart}
-        <a on:click={() => window.dispatchEvent(new CustomEvent(`mrGame:restart`, { bubbles: true }))}>Restart</a>
-      {/if}
-    </div>
+      <Slide size="{slide.size}">
+				{#if slide.headline}
+					<h1 class="text-4xl"> {slide.headline} </h1>
+				{/if}
+				{#if slide.text}
+          <p class="text-2xl {slide.headline ? 'mt-16': ''}">
+        {slide.text}
+					</p>
+				{/if}
+				{#if slide.restart}
+          <button on:click={handleRestart}>Restart</button>
+				{/if}
+      </Slide>
       {/if}
     </div>
   </div>
@@ -60,7 +73,7 @@
 </div>
 <style>
   #scroller {
-    position:relative;padding:0;margin:0 auto;pointer-events:none
+    position:relative;padding:0;margin:0 auto;
   }
   .step:last-child{margin-bottom:0}
 </style>
