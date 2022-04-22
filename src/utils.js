@@ -2,7 +2,7 @@ import generateData from "month-data-generator";
 
 export function getData() {
 
-let islands = [ "Crete", "Evia", "Lesbos", "Rhodes", "Chíos", "Cephalonia", "Corfu", "Lemnos", "Samos", "Naxos", "Zakynthos", "Thassos", "Andros", "Lefkada", "Karpathos", "Kos", "Kythira", "Icaria", "Skyros", "Paros", "Tinos", "Samothrace", "Milos", "Kea", "Amorgos", "Kalymnos", "Ios", "Kythnos", "Astypalaia", "Ithaca", "Salamis" ];
+let islands = [ "Crete", "Euboea", "Lesbos", "Rhodes", "Chios", "Cephalonia", "Corfu", "Lemnos", "Samos", "Naxos", "Zakynthos", "Thasos", "Andros", "Lefkada", "Karpathos", "Kos", "Kythira", "Icaria", "Skyros", "Paros", "Tinos", "Samothraki", "Milos", "Kea", "Amorgos", "Kalymnos", "Ios", "Kythnos", "Astypalaia", "Ithaca", "Salamis"   ];
   const monthData = [
     { min: 9, max: 15, name: "January"  },
     { min: 9, max: 15, name: "February"  },
