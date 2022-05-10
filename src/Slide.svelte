@@ -7,7 +7,6 @@
 				default: widthClass = 'w-208';
 			}
 </script>
-
 <div class="m-auto h-full">
   <div class="grid h-full place-items-center">
     <div class="relative">
@@ -27,6 +26,7 @@
       >
         <g filter="url(#filter0_d_0_332)">
           <path
+            class="drop-shadow-md"
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M2 89.7807V642L201.463 557.89L422.996 637.724L506.999 603.478L523.928 587.39H546.463L624.342 555.641L843 642V503.247L825.692 476.08L843 441.174V89.7807L624.497 0L532.667 37.4575L512.126 55.4131L496.482 52.2174L421.569 82.7745L201.312 1.84971L112.214 41.1575L95.0582 60.4734L79.9008 55.4131L2 89.7807Z"

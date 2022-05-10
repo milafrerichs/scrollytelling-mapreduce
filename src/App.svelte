@@ -51,12 +51,12 @@
 <div>
   <div class="sticky top-0 w-full h-full" id="map-reduce-container">
     {#if slide < gameStarts}
-      <div class="w-full h-full bg-cover bg-center" id="flourish-container" style="height:{height}px; background-image: url(https://c1.wallpaperflare.com/preview/285/61/182/greece-ithaca-island-mediterranean.jpg)" class:hidden={slide >= gameStarts}>
+      <div class="w-full h-full bg-cover bg-center" id="flourish-container" style="height:{height}px; background-image: url(/images/summer.jpg)" class:hidden={slide >= gameStarts}>
       </div>
     {:else if slide >= gameStarts && slide < gameEnds }
       <MapReduceGame data={gameData} question={gameQuestion} />
     {:else}
-      <div class="w-full h-full bg-cover bg-center" id="flourish-container" style="height:{height}px; background-image: url(https://c1.wallpaperflare.com/preview/285/61/182/greece-ithaca-island-mediterranean.jpg)">
+      <div class="w-full h-full bg-cover bg-center" id="flourish-container" style="height:{height}px; background-image: url(/images/summer.jpg)">
       </div>
     {/if}
   </div>
