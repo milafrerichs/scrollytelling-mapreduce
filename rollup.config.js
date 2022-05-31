@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
+import dsv from '@rollup/plugin-dsv';
 import sveltePreprocess from "svelte-preprocess";
 import pkg from './package.json';
 
@@ -63,6 +64,7 @@ export default {
         // we'll extract any component CSS out into
         // a separate file - better for performance
         css({ output: 'bundle.css' }),
+        dsv(),
 
         // If you have external dependencies installed from
         // npm, you'll most likely need these plugins. In

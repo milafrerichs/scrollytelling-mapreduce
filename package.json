@@ -5,18 +5,20 @@
   "main": "index.js",
   "directories": {},
   "dependencies": {
+    "d3-scale": "^4.0.2",
+    "d3-selection": "^3.0.0",
+    "d3-transition": "^3.0.1",
     "eases-jsnext": "^1.0.8",
     "intersection-observer": "^0.12.0",
     "map-reduce-game": "milafrerichs/map-reduce-game",
+    "marked": "^4.0.16",
     "month-data-generator": "milafrerichs/month-data-generator",
     "scrollama": "^2.2.3",
-    "sirv-cli": "^1.0.0",
-    "d3-scale": "^4.0.2",
-    "d3-selection": "^3.0.0",
-    "d3-transition": "^3.0.1"
+    "sirv-cli": "^1.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-dsv": "^2.0.3",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "autoprefixer": "^10.4.4",
     "eases-jsnext": "^1.0.10",

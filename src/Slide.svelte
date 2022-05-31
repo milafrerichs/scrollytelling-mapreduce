@@ -12,14 +12,14 @@
     <div class="relative">
       <!-- Centered Text Content -->
       <div
-        class="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-12 text-center font-bamboo text-app-blue-900"
+        class="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-10 text-center font-bamboo text-app-blue-900"
       >
 				<slot/>
       </div>
 
       <svg
         aria-hidden="true"
-        viewBox="0 0 845 648"
+        viewBox="0 0 800 675"
 				class="{widthClass}"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
