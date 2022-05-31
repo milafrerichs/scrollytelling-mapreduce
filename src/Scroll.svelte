@@ -1,6 +1,7 @@
 <script>
   import "intersection-observer";
   import scrollama from "scrollama";
+  import { marked } from 'marked';
 
   import { createEventDispatcher, onMount } from 'svelte';
 
@@ -58,12 +59,12 @@
     {#if slide.text || slide.headline }
       <Slide size="{slide.size}">
 				{#if slide.headline}
-					<h1 class="text-4xl"> {slide.headline} </h1>
+					<h1 class="text-4xl">{slide.headline}</h1>
 				{/if}
 				{#if slide.text}
-          <p class="text-2xl {slide.headline ? 'mt-16': ''}">
-        {slide.text}
-					</p>
+          <div class="text text-lg font-sans {slide.headline ? 'mt-8': ''}">
+            {@html marked(slide.text)}
+					</div>
 				{/if}
 				{#if slide.restart}
           <button on:click={handleRestart}>Restart</button>
@@ -79,4 +80,7 @@
     position:relative;padding:0;margin:0 auto;
   }
   .step:last-child{margin-bottom:0}
+  :global(.text p) {
+    margin-bottom: 1.5rem;
+  }
 </style>

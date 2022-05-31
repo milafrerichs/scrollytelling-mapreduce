@@ -1,5 +1,6 @@
 import App from './App.svelte';
 import { getData } from './utils.js';
+import slides from '../data/slides.csv';
 
 let islands = [ "Crete", "Euboea", "Lesbos", "Rhodes", "Chios", "Cephalonia", "Corfu", "Lemnos", "Samos", "Naxos", "Zakynthos", "Thasos", "Andros", "Lefkada", "Karpathos", "Kos", "Kythira", "Icaria", "Skyros", "Paros", "Tinos", "Samothraki", "Milos", "Kea", "Amorgos", "Kalymnos", "Ios", "Kythnos", "Astypalaia", "Ithaca", "Salamis"   ];
 
@@ -28,23 +29,17 @@ return question;
 }
 let question = generateQuestion();
 
-
+function parseSlides(slides, question) {
+  return slides.map(function(slide) {
+    let match = slide.headline.match(/\{question.(.*)\}/)
+    if(match && match.length > 0) {
+      slide.headline = question[match[1]]
+    }
+    return slide;
+  })
+}
 let state = {
-  slides: [
-    { headline: "Map Reduce", size: 'm'},
-    { headline: "What is Map Reduce", text: "text about map reduce?", size: 'm'},
-    { headline: "Game Explanation", text: "Some detailed explanation about the game and the platform, etc"},
-    { headline: "Imagine that", text: "We want to go to an greek island and want to find the best one to visit" , size: 'm', gameStart: true},
-    { headline: question.text, text: "This is the question you will need to answer. " },
-    { text: "The dots in the background are your data points, we will show you what they are in a minute. Keep scrolling." , size: 'm'},
-    { headline: "Your assigned data", text: "This is the data you got assigned", size: 'm' },
-    { headline: "Your turn", text: "Now it's your turn to answer the question based on your assigned data." , size: 's'},
-    { stayOn: true },
-    { headline: "Answers from all other mappers", text: "This is the data that all the other mappers provided to the reducer" , size: 'm'},
-    { },
-    { text: "Explanation about the game, concept, etc. Encouregement to play again." },
-    { headline: "End", text: "You can restart the game if you want", restart: true , size: 'm'},
-  ],
+  slides: parseSlides(slides, question),
   gameQuestion: question,
   gameStarts: 3,
   gameData: data
