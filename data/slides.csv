@@ -2,25 +2,49 @@ headline,text,size,gameStart,stayOn,restart
 Map Reduce - the Game!,,m,,,
 What is Map Reduce,"Map Reduce is a 'divide and conquer' approach to process big data, for example to find the answer to a question. When there is so much data that one processor cannot handle it alone, we have to find another way. 
 
-In this game, each of us is going to act as a processor: we will all be a 'mapper'. Every mapper gets only a part of the data. Maybe some of us get duplicate data, but that doesn't matter. As a group of mappers, we have all the data covered.
 
-First, we 'map': we all perform the same job on the data assigned to us, and we report our partial results to the 'reducer', the master processor. Next, the reducer does her job:  she will sort out all partial results into the final result, which is the answer to the question. 
+In this game, each of us is going to act as a 'mapper': we will all mimic a processor. Every mapper gets only a part of the data. Maybe some of us get duplicate data, but that doesn't matter. As a group of mappers, we have all the data covered!
+
+
+First, we 'map': we all perform the same job on the data assigned to us, and we report our partial results to the 'reducer', the master processor. 
+Next, the 'reducer' does her job:  she will sort out all partial results into the final result, which is the answer to the question. 
+
 
 Looks complicated, doesn't it? Let's experience it!",l,,,
-Game Explanation,"Some detailed explanation about the game and the platform, etc",,,,
-Imagine that,"We want to take a holiday on a Greek island. But which island should we choose?
+Game Explanation,"To play is easy, just scroll down until the next message appears, and at some point you have to enter an answer through a button. When you reach the end, you can restart the game if you want, and play again.",,,,
+Imagine that,"... we want to take a holiday on a Greek island. But which island should we choose?
+
 
 We would like to go to the one with the best weather! Let's check out the weather data of all the Greek islands. Only... They are so many, and all of them have so much weather data! How can we ever process all that?
 
-Let's apply Map Reduce. Each of us will be a mapper: we will all answer a question for only a chunk of all the islands data. When we all work together, we can find our holiday destination!",l,true,,
+
+Let's apply **Map Reduce**. Each of us will act as a *mapper*: we will all answer a question for only a chunk of all the islands data. In the end, the *reducer* will find the overall answer. 
+
+
+When we all work together, we can find our holiday destination!",,true,,
 {question.text},"As a mapper, this is the question that you are going to answer for your part of the data.",,,,
-,"The dots in the background are all the data points on all the Greek islands. A dazzling amount, don't you agree? 
+,"The dots in the background are all the data points: all weather data of all the Greek islands. 
+
+
+A dazzling amount, don't you think? 
+
 
 Don't worry, keep scrolling!",m,,,
 Your assigned data,"The red dots represent the random dataset that was assigned to you. Other mappers will do other parts. Together, the mappers cover every datapoint at least once.",m,,,
-Your turn,"Let's begin! Mappers, it's your turn to answer the question for your part of the data. Which island, and which value, is the answer to the question?",s,,,
+Your turn,"Let's begin! 
+
+
+*Mappers*, it's your turn to answer the question for your part of the data. 
+
+
+**Which island in your dataset is the answer to the question?**
+ 
+You have to enter both the name of the island and the value.",,,,
 ,,,,true,
-Answers from all other mappers,These are the answers from all the other mappers. The answers form a new dataset that is given to the reducer.,m,,,
-Result from the reducer,"The reducer checks out her dataset, and filters out the ultimate answer to the question. We found our holiday destination!",m,,,
-,"So you have now experience Map Reduce, and this is how it also works with computer-processors. Each one acts the same way as you did, to be a mapper in the process. Finally, the reduce-computer filters out the answer to the question.",,,,
-End,Do you want to try again? You can restart the game and play again.,m,,,true
+Answers from all other mappers,"These are the answers from the other mappers. Together, the answers form a new dataset that is given to the reducer.",m,,,
+Result from the reducer,"The *reducer* checks out her dataset of answers. Using her reduce function, she finds the ultimate answer to the question. 
+
+
+We found our holiday destination!",,,,
+You did it!,"So now you have experienced **Map Reduce**, as a mapper. This is also how it works with computer-processors. Each processor acts the same way as you did, to be a mapper in the process. Finally, the reduce-computer filters out the answer to the question.",,,,
+End,Do you want to try again? You can **restart** the game and play again.,m,,,true
