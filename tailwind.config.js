@@ -47,6 +47,9 @@ module.exports = {
         "gradient-fall":
           "linear-gradient(180deg, rgba(217,221,228,1) 0%, rgba(243,199,181,1) 43%, rgba(251,181,147,1) 100%)",
       },
+      screens: {
+        'tall': { 'raw': '(min-height: 800px)'  },
+      },
     },
   },
   plugins: [
